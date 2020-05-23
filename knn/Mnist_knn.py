@@ -37,6 +37,7 @@ def loadData(fileName):
         # 将标记信息放入标记集中
         label_arr.append(int(cur_line[0]))
     # 返回数据集和标记
+
     return data_arr, label_arr
 
 
@@ -48,13 +49,13 @@ def calc_dist(x1, x2):
     :param x2:向量2
     :return:向量之间的欧式距离
     """
-    # return np.sqrt(np.sum(np.square(x1 - x2)))
+    return np.sqrt(np.sum(np.square(x1 - x2)))
 
     # 曼哈顿距离计算公式
     # print(x1.dtype)
     # print(x2)
     # print(np.sum(x1 - x2))
-    return np.sum(x1 - x2)
+    # return np.sum(x1 - x2)
 
 
 def getClosest(trainDataMat, trainLabelMat, x, topK):
@@ -128,7 +129,7 @@ def model_test(trainDataArr, trainLabelArr, testDataArr, testLabelArr, topK):
     return 1 - (errorCnt / 200)
 
 
-def draw_fun1():
+def draw_fun1(trainData, trainLabel, testData, testLabel):
     k_num = 7
     plt.title("test topK")
     plt.xlabel("k ")
@@ -150,11 +151,11 @@ if __name__ == "__main__":
     start = time.time()
 
     # 获取训练集
-    trainData, trainLabel = loadData('./mnist/mnist_train.csv')
+    trainData, trainLabel = loadData('../mnist/mnist_train.csv')
     # 获取测试集
-    testData, testLabel = loadData('./mnist/mnist_test.csv')
+    testData, testLabel = loadData('../mnist/mnist_test.csv')
     # 画出k值对应正确率的散点图
-    draw_fun1()
+    draw_fun1(trainData, trainLabel, testData, testLabel)
 
     end = time.time()
     # 显示花费时间
