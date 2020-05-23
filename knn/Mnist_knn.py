@@ -143,7 +143,6 @@ def draw_fun1(trainData, trainLabel, testData, testLabel):
     plt.scatter(x[1:], y[1:])
     # 打印正确率
     # print('accuracy is:%d' % (accur * 100), '%')
-
     plt.show()
 
 
