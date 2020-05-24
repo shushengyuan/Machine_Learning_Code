@@ -139,7 +139,8 @@ def draw_fun1(trainData, trainLabel, testData, testLabel):
         accur = model_test(trainData, trainLabel, testData, testLabel, x)
         y[x] = accur * 100
 
-    x = np.arange(1, k_num+1)
+    plt.ylim(95, 105)
+    x = np.arange(1, k_num + 1)
     plt.scatter(x[1:], y[1:])
     # 打印正确率
     # print('accuracy is:%d' % (accur * 100), '%')
